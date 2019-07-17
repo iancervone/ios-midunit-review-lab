@@ -9,6 +9,13 @@ Input: `Hello, there`
 
 Output: `HELLO, THERE`
 
+
+var someString = "Hello, there"
+
+someString = someString.uppercased()
+print(someString)
+
+
 2. **Given a String, return a String alternating between uppercase and lowercase letters**
 
 
@@ -17,11 +24,33 @@ Input: `Hello, there`
 Output: `HeLlO, tHeRe`
 
 
+let someString = "Hello World"
+var newString = ""
+
+for (index, letter) in someString.enumerated(){
+//     print(index, letter)
+if index % 2 == 0 {
+newString.append(letter.uppercased())
+} else {
+newString.append(letter.lowercased())
+}
+}
+print(newString)
+
+
 3. **Given a String, return a String with all occurrences of a given letter removed**
 
 Input: `Hello, there`
 
 Output: `Hllo, thr`
+
+
+let someString = "Hello, there"
+var letterToRemove = "e"
+
+var replaced = someString.replacingOccurrences(of: "\(letterToRemove)", with: "")
+print(replaced)
+
 
 
 ## Arrays
@@ -33,11 +62,36 @@ Input: `[1,5,2,4,1,4]`
 
 Output: `5`
 
+
+var arrayNumbers: [Int] = [1,5,2,4,1,4]
+var largestNum = Int ()
+var largest = arrayNumbers.max()
+for num in arrayNumbers {
+if num > largestNum {
+largestNum = num
+}
+}
+print (largestNum)
+
+
 2. **Given an array of type [Int], return the smallest element**
 
 Input: `[1,5,2,4,1,4]`
 
 Output: `1`
+
+var arrayNumbers: [Int] = [1,5,2,4,1,4]
+var  smallestNum = arrayNumbers.min()
+if let smallestNum = smallestNum {
+print (smallestNum)
+}
+
+
+
+
+Message Input
+
+
 
 3. **Given an array of type [Int], return its sum**
 
@@ -45,11 +99,31 @@ Input: `[1,5,2,4,1,4]`
 
 Output: `17`
 
+
+var array: [Int] = [1,5,2,4,1,4]
+var sum = Int()
+for number in array {
+sum = sum + number
+}
+print(sum)
+
 4. **Given an array of type [Double], return its average**
 
 Input: `[3,4.5,7.5,2,1]`
 
 Output: `3.6`
+
+
+var array = [3,4.5,7.5,2,1]
+var sum = Double()
+var average = Double ()
+//var DoubleArray: [ArrayDouble] = Array(array)
+for num in array {
+sum = sum  + num
+}
+average = sum / Double(array.count)
+print (average)
+
 
 5. **Given an array of type [Double] and a Double, return the sum of all numbers in the array greater than a given number**
 
@@ -58,17 +132,51 @@ Input: `[3,4.5,7.5,2,1], 3`
 Output: `12`
 
 
+var array = [3,4.5,7.5,2,1]
+var sum = Double()
+let givenNumber = 3
+
+for number in array {
+if givenNumber < Int(Double(number)) {
+sum = sum + number
+}
+}
+print(sum)
+
+
 6. **Given an array of type [Double], return the product of all the elements**
 
 Input: `[3,4.5,7.5,2,1]`
 
 Output: `202.5`
 
+
+var array = [3,4.5,7.5,2,1]
+var product: Double = 1
+for num in array {
+product = product * num
+}
+print (product)
+
+
 7. **Given an array of type [Int], return the second smallest value in the array**
 
 Input: `[3,6,1,9,4,8]`
 
 Output: `3`
+
+
+var arrayNumbers: [Int] = [3,6,1,9,4,8]
+var smallestNum = arrayNumbers.min()
+var secondSmallest = arrayNumbers.max()
+for num in arrayNumbers {
+if num > smallestNum!  && num <= secondSmallest! {
+secondSmallest = num
+
+}
+}
+print (secondSmallest!)
+
 
 ## Optionals
 
@@ -77,6 +185,15 @@ Output: `3`
 Input: `[nil, "We", "come", nil, "in", "peace"]`
 
 Output: `["We", "come", "in", "peace"]`
+
+var string = [nil, "We", "come", nil, "in", "peace"]
+var yourArray = [String]()
+for word in string {
+if let word = word {
+yourArray.append(word)
+}
+}
+print(yourArray)
 
 2. **Given an array of type [String?]? return an array of [String] removing all nil values**
 
